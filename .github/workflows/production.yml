@@ -17,7 +17,7 @@ jobs:
         working-directory: ./server_test
         run: |
           docker compose down || true
-          docker rmi server_test-rust-server-test:latest
+          docker rmi server_test-rust-server-test:latest || true
       - name: Run server
         working-directory: ./server_test
         run: |
