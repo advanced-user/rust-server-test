@@ -14,6 +14,7 @@ jobs:
       - uses: Swatinem/rust-cache@v2
       - uses: actions/checkout@v3
       - name: Stop and remove previous container
+        working-directory: ./server_test
         run: |
           docker compose down || true
           docker rmi server_test-rust-server-test:latest
