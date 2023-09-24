@@ -15,11 +15,9 @@ jobs:
       - uses: actions/checkout@v3
       - name: Stop and remove previous container
         run: |
-          #  Stop and remove the previous container with the "app=server_test" label
-          docker stop $(docker ps -q --filter "label=app=server_test") || true
-          docker rm $(docker ps -aq --filter "label=app=server_test") || true
+          docker compose down || true
+          docker rmi rust-server-test || true
       - name: Run server
         working-directory: ./server_test
         run: |
-          docker build -t test-server .
-          docker run -d -p 8888:8888 app=server_test test-server
+          docker compose up -d

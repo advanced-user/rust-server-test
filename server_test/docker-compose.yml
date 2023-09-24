@@ -1,0 +1,17 @@
+version: "3.4"
+services:
+  rust-server-test:
+    build:
+      context: .
+      cache_from:
+        - rust:latest
+    networks:
+      - actix_api
+    volumes:
+      - ./:/app
+    tty: true
+    ports:
+      - "8888:8888"
+networks:
+  actix_api:
+    driver: bridge
