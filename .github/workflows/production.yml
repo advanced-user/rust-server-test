@@ -12,8 +12,7 @@ jobs:
     runs-on: self-hosted
     steps:
       - uses: dtolnay/rust-toolchain@stable
-      - name: Checkout
-        uses: actions/checkout@v3
-
+      - uses: actions/checkout@v3
       - name: Run server
+        working-directory: ./server_test
         run: cargo run
