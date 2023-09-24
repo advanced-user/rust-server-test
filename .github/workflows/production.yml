@@ -16,13 +16,8 @@ jobs:
       - name: Stop and remove previous container
         run: |
           # Stop the previous container if it's running
-          if [ "$(docker ps -q -f name=test-server)" ]; then
-            docker stop test-server
-          fi
-          # Remove the previous container if it exists
-          if [ "$(docker ps -aq -f status=exited -f name=test-server)" ]; then
-            docker rm test-server
-          fi
+          docker stop test-server
+          docker rm test-server
       - name: Run server
         working-directory: ./server_test
         run: |
