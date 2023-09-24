@@ -8,3 +8,7 @@ edition = "2021"
 [dependencies]
 actix = "0.13.0"
 actix-web = "4.3.1"
+
+[[bin]]
+name = "server_test"
+path = "src/main.rs"

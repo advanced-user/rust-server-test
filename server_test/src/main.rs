@@ -8,7 +8,7 @@ pub async fn test_hello() -> HttpResponse {
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     HttpServer::new(move || App::new().service(test_hello))
-        .bind("localhost:9000")?
+        .bind("0.0.0.0:8888")?
         .run()
         .await
 }
